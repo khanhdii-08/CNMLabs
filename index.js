@@ -1,24 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-// const docClient = require("./configAWS");
+const docClient = require("./configAWS");
 const app = express();
 
 app.use(express.json({ extended: false }));
 app.use(express.static("./views"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
-const AWS = require("aws-sdk");
-
-const config = new AWS.Config({
-  accessKeyId: process.env.ACCESSKEYID,
-  secretAccessKey: process.env.SECRETACCESSKEY,
-  region: process.env.REGION,
-});
-
-AWS.config = config;
-
-const docClient = new AWS.DynamoDB.DocumentClient();
 
 const tableName = "SanPham";
 
