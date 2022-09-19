@@ -24,7 +24,7 @@ const tableName = "SanPham";
 
 app.get("/", (req, res) => {
   const params = {
-    tableName: tableName,
+    TableName: tableName,
   };
 
   docClient.scan(params, (err, data) => {

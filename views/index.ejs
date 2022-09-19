@@ -18,11 +18,17 @@
             <th>Ten SP</th>
             <th>So Luong</th>
         </tr>
-        <% for (let i=0; i<10; i++) {%>
+        <% for (let i=0; i<sanPhams.length; i++) {%>
             <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+                <td>
+                    <%=sanPhams[i].id%>
+                </td>
+                <td>
+                    <%=sanPhams[i].name%>
+                </td>
+                <td>
+                    <%=sanPhams[i].quanlity%>
+                </td>
             </tr>
             <% }%>
 
