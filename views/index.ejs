@@ -11,12 +11,26 @@
 
 <body>
     <h1>Product Table</h1>
+    <div class="containerForm">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="idsp">Mã Sản Phẩm</label>
+            <input type="number" id="idsp" name="id" placeholder="Nhập Mã Sản Phẩm">
 
+            <label for="name">Tên</label>
+            <input type="text" id="name" name="name" placeholder="Nhập Tên Sản Phẩm">
+
+            <label for="quantity">Số Lượng</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Nhập Số Lượng Sản Phẩm">
+
+            <input class="btn-submit" type="submit" value="Submit">
+        </form>
+    </div>
     <table id="products">
         <tr>
             <th>Ma SP</th>
             <th>Ten SP</th>
             <th>So Luong</th>
+            <th>Action</th>
         </tr>
         <% for (let i=0; i<sanPhams.length; i++) {%>
             <tr>
@@ -27,15 +41,30 @@
                     <%=sanPhams[i].name%>
                 </td>
                 <td>
-                    <%=sanPhams[i].quanlity%>
+                    <%=sanPhams[i].quantity%>
+                </td>
+                <td>
+                    <form style="display: inline-block;" action="/delete" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%=sanPhams[i].id%>" />
+                        <input class="btn-delete" type="submit" value="Delete" />
+                    </form>
+                    <input class="btn-update" type="submit" value="Update" onclick="update(1,2,3)" />
                 </td>
             </tr>
             <% }%>
 
-
-
     </table>
 
 </body>
+
+
+<script>
+    const update = (id, name, quantity) => {
+        document.getElementsByName('id').value = id;
+        document.getElementsByName('name').value = name;
+        document.getElementsByName('quantity').value = quantity;
+    }
+
+</script>
 
 </html>
